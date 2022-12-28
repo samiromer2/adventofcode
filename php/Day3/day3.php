@@ -1,23 +1,27 @@
 <?php
-$totalofthesqual=0;
-$handle = fopen("input.txt", "r");
-if ($handle) {
-    while (($line = fgets($handle)) !== false) {
-        list($l, $w, $h) = explode("x", $line);
-        $sq1 = $l*$w;
-        $sq2 = $w*$h;
-        $sq3 = $h*$l;
-        $min=$sq1;
-        if ($min>$sq2)
-        $min=$sq2;
-        if ($min>$sq3)
-        $min=$sq3;
-        $totalofsq = 2*$l*$w + 2*$w*$h + 2*$h*$l;
-        $totalofsq+=$min;
-        $totalofthesqual+=$totalofsq;
-        
-    }
+$house = 0;
 
-    fclose($handle);
-    echo $totalofthesqual;
+$myfile = fopen("input.txt", "r") or die("Unable to open file!");
+// Output one character until end-of-file
+while (!feof($myfile)) {
+     $singlechar = fgetc($myfile);
+    switch ($singlechar) {
+        case '^':
+            echo "north";
+            break;
+        case 'v':
+            echo "south";
+            break;
+        case '>':
+            echo "east";
+            break;
+        case '<':
+            echo "west";
+            break;
+
+        default:
+            echo "Weird";
+            break;
+    }
 }
+fclose($myfile);

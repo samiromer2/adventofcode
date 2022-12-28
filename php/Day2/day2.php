@@ -1,5 +1,6 @@
 <?php
 $totalofthesqual=0;
+$totaloftheribbon=0;
 $handle = fopen("input.txt", "r");
 if ($handle) {
     while (($line = fgets($handle)) !== false) {
@@ -15,9 +16,43 @@ if ($handle) {
         $totalofsq = 2*$l*$w + 2*$w*$h + 2*$h*$l;
         $totalofsq+=$min;
         $totalofthesqual+=$totalofsq;
-        
+
+      
+        $secondsmallest=$w;
+        if ($secondsmallest>$l)
+        $secondsmallest=$l;
+        if ($secondsmallest>$h)
+        $secondsmallest=$h;
+
+        if ($secondsmallest == $w)
+        {
+        $firstsmallest=$l;
+        if ($firstsmallest>$h)
+            $firstsmallest=$h;
+        }
+
+        if ($secondsmallest == $l)
+        {
+        $firstsmallest=$w;
+        if ($firstsmallest>$h)
+        $firstsmallest=$h;
+        }
+        if ($secondsmallest == $h)
+        {
+        $firstsmallest=$l;
+        if ($firstsmallest>$w)
+        $firstsmallest=$w;
+        }  
+ //$h
+
+        $dim = $secondsmallest+$secondsmallest+$firstsmallest+$firstsmallest;
+        $feetofribbon= $l*$w*$h;
+        $totaloftheribbon += $dim;
+        $totaloftheribbon += $feetofribbon;
     }
 
     fclose($handle);
     echo $totalofthesqual;
+    echo "<br>";
+    echo $totaloftheribbon;
 }

@@ -5,7 +5,7 @@
 $input = 'yzbqklnj';
 $allgood = 0;
 //$i = 0;
-$i = 141992;
+$i = 0;
 //$i = 141991;
 while ($allgood == 0)
 {
@@ -17,6 +17,7 @@ if (strpos($output, '00000') === 0) {
     $allgood = 1;
  }
     echo $i;
+	echo " ";
     $i++;
 }
 echo $i-1;

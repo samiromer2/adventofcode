@@ -1,0 +1,6 @@
+/**
+* adds two numbers together.
+* @param {number} a - The first number
+* @param {number} b - the Second number
+* @returns {number} the sum of a and b.
+*/
